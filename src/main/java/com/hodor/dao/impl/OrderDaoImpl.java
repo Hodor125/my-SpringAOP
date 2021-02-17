@@ -22,6 +22,13 @@ public class OrderDaoImpl implements OrderDao {
         ordersList.add(new Order(112, "苹果", "2020-11-20", 12811));
         ordersList.add(new Order(113, "锤子", "2020-11-20", 12821));
         ordersList.add(new Order(114, "小米", "2020-11-20", 12800));
+        System.out.println("查询订单......");
         return ordersList;
+    }
+
+    @Override
+    public int addOrder(Order order) {
+        System.out.println("新增订单......");
+        return 1;
     }
 }

@@ -12,4 +12,6 @@ import java.util.List;
  */
 public interface OrderDao {
     List<Order> findOrders();
+
+    int addOrder(Order order);
 }

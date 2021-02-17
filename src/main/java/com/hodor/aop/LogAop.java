@@ -13,17 +13,33 @@ import org.springframework.aop.ProceedingJoinPoint;
 @Aspect
 public class LogAop {
     @Around(execution = "com.hodor.service.impl.OrderServiceImpl.addOrder")
-    public Object around(ProceedingJoinPoint joinPoint) {
+    public Object aroundAddOrder(ProceedingJoinPoint joinPoint) {
         Object result = null;
         //调用目标对象的目标方法
         try {
-            System.out.println("前置通知......");
+            System.out.println("==>前置通知......");
             result = joinPoint.proceed();
-            System.out.println("返回通知......");
+            System.out.println("==>返回通知......");
         } catch (Throwable throwable) {
-            System.out.println("异常通知......" + throwable.getMessage());
+            System.out.println("==>异常通知......" + throwable.getMessage());
         } finally {
-            System.out.println("后置通知......");
+            System.out.println("==>后置通知......");
+        }
+        return result;
+    }
+
+    @Around(execution = "com.hodor.service.impl.OrderServiceImpl.findOrders")
+    public Object aroundfindOrders(ProceedingJoinPoint joinPoint) {
+        Object result = null;
+        //调用目标对象的目标方法
+        try {
+            System.out.println("==>前置通知......");
+            result = joinPoint.proceed();
+            System.out.println("==>返回通知......");
+        } catch (Throwable throwable) {
+            System.out.println("==>异常通知......" + throwable.getMessage());
+        } finally {
+            System.out.println("==>后置通知......");
         }
         return result;
     }
